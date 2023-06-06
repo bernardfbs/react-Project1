@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AppBar } from "./components/AppBar";
+import { HomeRoute } from "./routes/HomeRoute";
+import { CreateNotepadRoute } from "./routes/CreateNotepadRoute";
+import { TextField } from "./components/TextField";
+import { Title } from "./components/Title";
+import { Button } from "./components/Button";
+import { ViewNotepadRoute } from "./routes/ViewNotepadRoute";
+import { EditNotepadRoute } from "./routes/EditNotepadRoute";
+import { LandingPage } from "./routes/LandingPage";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
+    <BrowserRouter>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <AppBar />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/criar-notepad" element={<CreateNotepadRoute />} />
+          <Route path="/ver-notepad/:id" element={<ViewNotepadRoute />} />
+          <Route path="/editar-notepad/:id" element={<EditNotepadRoute />} />
+          <Route path="/home-notepad/" element={<HomeRoute />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
-
-export default App
