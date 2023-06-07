@@ -1,3 +1,6 @@
+import { Button } from "./Button";
+import { BiNotepad } from "react-icons/bi";
+
 export function FormLandingPage() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray">
@@ -8,9 +11,7 @@ export function FormLandingPage() {
         Explore nosso Notepad feito em React, com menu appbar lateral
         customizado e darkmode!
       </p>
-      <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-        Saiba Mais
-      </button>
+      <BiNotepad className="text-8xl"></BiNotepad>
     </div>
   );
 }

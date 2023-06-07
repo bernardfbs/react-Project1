@@ -52,7 +52,7 @@ export function ViewNotepadRoute() {
           },
         ]}
       />
-      <div className="flex gap-1">
+      <div className="flex gap-3 justify-end">
         <Button className="bg-red-500 hover:bg-red-600" onClick={deleteNotepad}>
           Deletar
         </Button>

@@ -15,9 +15,9 @@ export function CreateNotepadRoute() {
       event.preventDefault();
       const response = await api.post("/notepads", event.data);
       if (response.data.success) {
-        toast("Seu notepad foi criado com sucesso");
+        toast("Parabéns! Seu notepad foi gerado");
         navigate("/");
-      } else toast("Houve um erro ao criar o seu notepad");
+      } else toast("Ops! Houve um erro ao gerar seu notepad");
     },
   });
 
@@ -37,11 +37,11 @@ export function CreateNotepadRoute() {
           ref={zo.ref}
           className="flex flex-col gap-4 m-2 md:max-w-screen-md md:mx-auto"
         >
-          <h1 className="text-center font-bold text-2xl">Criar Notepad</h1>
+          <h1 className="text-center font-bold text-2xl">Novo Notepad</h1>
           <div className="flex flex-col gap-1">
             <input
               type="text"
-              placeholder="Digite o título"
+              placeholder="Digite aqui o título"
               className={`rounded-lg px-2 py-1 border focus:border-green-500 outline-none w-full ${zo.errors.title(
                 "border-red-600"
               )}`}
@@ -54,7 +54,7 @@ export function CreateNotepadRoute() {
           <div className="flex flex-col gap-1">
             <input
               type="text"
-              placeholder="Digite o subtítulo"
+              placeholder="Digite aqui o subtítulo"
               className={`rounded-lg px-2 py-1 border focus:border-green-500 outline-none w-full ${zo.errors.subtitle(
                 "border-red-600"
               )}`}
@@ -66,7 +66,7 @@ export function CreateNotepadRoute() {
           </div>
           <div className="flex flex-col gap-1">
             <textarea
-              placeholder="Digite o conteúdo"
+              placeholder="Digite aqui o conteúdo"
               className={`rounded-lg px-2 py-1 border focus:border-green-500 outline-none w-full ${zo.errors.content(
                 "border-red-600"
               )}`}
